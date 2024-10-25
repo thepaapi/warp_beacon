@@ -53,8 +53,8 @@ class Handlers(object):
 		await message.reply_text(
 			parse_mode=ParseMode.MARKDOWN,
 			text=f"Welcome to @{bot_name.username}!\n"
-			"Send link to external social network with content and I'll reply to it.\n"
-			"Currently supported: Instagram, YouTube Shorts and YouTube Music."
+			"Send youtube video or Shotrs link and I'll download it for you.\n"
+			"Join us on t.me/bigstark2"
 		)
 
 	async def handler(self, client: Client, message: Message) -> None:
@@ -79,7 +79,7 @@ class Handlers(object):
 						raise ValueError("Failed to extract youtu.be link")
 					origin = Origin.YOUTUBE
 				if origin is Origin.UNKNOWN:
-					logging.info("Only Instagram, YouTube Shorts and YouTube Music are now supported. Skipping.")
+					logging.info("Only YouTube Shorts and YouTube Music are now supported. Skipping.")
 					continue
 				entities, tg_file_ids = [], []
 				uniq_id = Storage.compute_uniq(url)
