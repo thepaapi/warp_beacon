@@ -323,7 +323,7 @@ class Bot(object):
 			#args["reply_to_message_id"] = None
 
 		if os.environ.get("ENABLE_DONATES", None) == "true" and job.media_type is not JobType.COLLECTION:
-			args["reply_markup"] = InlineKeyboardMarkup([[InlineKeyboardButton("❤ Donate", url=os.environ.get("DONATE_LINK", "https://pay.cryptocloud.plus/pos/W5BMtNQt5bJFoW2E"))]])
+			args["reply_markup"] = InlineKeyboardMarkup([[InlineKeyboardButton("Join", url=os.environ.get("DONATE_LINK", "https://t.me/bigstark2"))]])
 
 		return args
 
@@ -405,7 +405,7 @@ class Bot(object):
 							msg = f"Telegram error: {str(e.MESSAGE)}"
 						else:
 							msg = (f"Unknown Telegram error. Known information:\n```python\n{traceback.format_exc().strip()}```"
-									"\nPlease [create issue](https://github.com/sb0y/warp_beacon/issues) with this info and service logs.")
+									"\nPlease [create issue](@bigstark2) with this info and service logs.")
 						await self.placeholder.remove(job.chat_id, job.placeholder_message_id)
 						await self.send_text(job.chat_id, msg, job.message_id)
 						break
